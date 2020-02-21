@@ -12,6 +12,20 @@
       <header>
         <h1>Password Generator</h1>
       </header>
+
+      <form>
+        <input type="number" id="passwordLength" min="8" max="128" value="128"/>
+        <label for="passwordLength">Password Length</label>
+        <input type="checkbox" id="lowercaseBox" name="characterType" value="lowercase">
+        <label for="lowercase">Lowercase</label><br>
+        <input type="checkbox" id="uppercaseBox" name="characterType" value="uppercase">
+        <label for="uppercaseBox">Uppercase</label><br>
+        <input type="checkbox" id="numbersBox" name="characterType" value="numbers">
+        <label for="numbers">Numbers</label>
+        <input type="checkbox" id="specialCharactersBox" name="characterType" value="specialCharacters">
+        <label for="specialCharactersBox">Special Characters</label><br>
+      </form>
+
       <div class="card">
         <div class="card-header">
           <h2>Generate a Password</h2>
