@@ -1,24 +1,50 @@
 var getPassword = document.querySelector("#password");
-
-var resultEL = document.getElementById('result');
 var passwordLengthEl = document.getElementById('passwordLength');
-var uppercaseEL = document.getElementById('uppercase');
-var lowercaseEL = document.getElementById('lowercase');
-var numbersEL = document.getElementById('numbers');
-var symbolsEL = document.getElementById('symbols');
-var generate = document.getElementById('generate');
+var uppercaseEl = document.getElementById('uppercase');
+var lowercaseEl = document.getElementById('lowercase');
+var numbersEl = document.getElementById('numbers');
+var symbolsEl = document.getElementById('symbols');
+var generateEl = document.getElementById('generate');
 
-var generateFunction = {
+var randomFunction = {
   lower:  getRandomLower,
   upper: getRandomUpper,
   number: getRandomNumber,
   symbol: getRandomSymbol
 };
 
-generate.addEventListener("click", function() {
-  var passwordLength = parseInt(passwordLengthEl.length);
-})
-console.log(length);
+// Generate event listener
+generateEl.addEventListener('click', function() {
+  var length = parseInt(passwordLengthEl.length);
+  var hasUpper = uppercaseEl.checked;
+  var hasLower = lowercaseEl.checked;
+  var hasNumber = numbersEl.checked;
+  var hasSymbol = symbolsEl.checked;
+  
+  getPassword.innerText = generatePassword(
+    hasLower,
+    hasUpper,
+    hasNumber,
+    hasSymbol,
+    length
+    );
+});
+
+// Generate password function
+function generatePassword(upper, lower, symbol, length, number) {
+  // 1. initialize password variable
+  // 2. Filter out unchecked types
+  // 3. Loop over length. Call generator function for each type
+  // 4. Add final password to the password variable and return it
+
+  var generatedPassword = " ";
+
+  var typesCount = upper + lower + symbol + length + number;
+  console.log("Types Count: ", typesCount)
+
+  var typesArr = [{upper}, {lower}, {number}, {symbol}];
+  console.log("typesArr: ", typesArr);
+}
 
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -30,6 +56,6 @@ function getRandomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 48);
 }
 function getRandomSymbol() {
-  var symbol = '!@#$%^&*()./,<>=+'
-  return symbol(Math.floor(Math.random() * symbol.length));
+  var symbol = '!@#$%^&*()./,<>=+';
+  return symbol[Math.floor(Math.random() * symbol.length)];
 }
