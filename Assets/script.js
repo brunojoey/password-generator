@@ -1,31 +1,35 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-var textAreaEl = document.querySelector('textarea');
-var upperCaseBox = document.querySelector("#uppercaseBox");
-var lowerCaseBox = document.querySelector("#lowercaseBox");
-var numbersBox = document.querySelector("#numbersBox");
-var specialCharactersBox = document.querySelector("#specialCharactersBox");
-var 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+var getPassword = document.querySelector("#password");
 
-  passwordText.value = password
+var resultEL = document.getElementById('result');
+var passwordLengthEl = document.getElementById('passwordLength');
+var uppercaseEL = document.getElementById('uppercase');
+var lowercaseEL = document.getElementById('lowercase');
+var numbersEL = document.getElementById('numbers');
+var symbolsEL = document.getElementById('symbols');
+var generate = document.getElementById('generate');
+
+var generateFunction = {
+  lower:  getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbol
+};
+
+generate.addEventListener("click", function() {
+  var passwordLength = parseInt(passwordLengthEl.length);
+})
+console.log(length);
+
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-textAreaEl.addEventListener("keyup", function(event) {
-  var key = event.key.toLowerCase();
-  var alphabetNumericSpecialCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 !@#$%^&*()./,+".split("");
-  var upperCase = event.key.toUpperCase();
-  if (alphabetNumericCharacters.includes(key)) {
-    elements.forEach(function(element) {
-      element.textContent += event.key;
-      element.textContent += event.upperCase;
-    });
-  } 
-});
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 48);
+}
+function getRandomSymbol() {
+  var symbol = '!@#$%^&*()./,<>=+'
+  return symbol(Math.floor(Math.random() * symbol.length));
+}
