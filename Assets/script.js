@@ -6,56 +6,70 @@ var numbersEl = document.getElementById('numbers');
 var symbolsEl = document.getElementById('symbols');
 var generateEl = document.getElementById('generate');
 
-var randomFunction = {
-  lower:  getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  symbol: getRandomSymbol
-};
 
-// Generate event listener
-generateEl.addEventListener('click', function() {
-  var length = parseInt(passwordLengthEl.length);
-  var hasUpper = uppercaseEl.checked;
-  var hasLower = lowercaseEl.checked;
-  var hasNumber = numbersEl.checked;
-  var hasSymbol = symbolsEl.checked;
-  
-  getPassword.innerText = generatePassword(
-    hasLower,
-    hasUpper,
-    hasNumber,
-    hasSymbol,
-    length
-    );
-});
+// function getRandomLetters(max,min) {
+//     var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+//     var lowercase = "abcdefghijklmnopqrstuvwxyz".split("");
+//     var numbers = "0123456789".split("");
+//     var symbols= "!@#$%^&**()./,+=".split("");
+//     var lengthPw = Math.floor(Math.random(passwordLengthEl) * (max - min + 1)) + min;
+//     var passwordRandom = Array(lengthPw).textContent(uppercase, lowercase, numbers, symbols);
+//     return passwordRandom;
+// }
 
-// Generate password function
-function generatePassword(upper, lower, symbol, length, number) {
-  // 1. initialize password variable
-  // 2. Filter out unchecked types
-  // 3. Loop over length. Call generator function for each type
-  // 4. Add final password to the password variable and return it
+// generateEl.addEventListener("click", function(){
+//     document.getElementById("password").textContent = getPassword;
+// });
 
-  var generatedPassword = " ";
 
-  var typesCount = upper + lower + symbol + length + number;
-  console.log("Types Count: ", typesCount)
+// generateEl.addEventListener("click", function() {
+//   document.getElementById("password").value = getPassword;
+// });
 
-  var typesArr = [{upper}, {lower}, {number}, {symbol}];
-  console.log("typesArr: ", typesArr);
+function getUppercase() {
+  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  if (uppercaseEl.checked === true) {
+    getPassword.style.display = "block";
+} else {
+  uppercaseEl.style.display = "none";
+}
 }
 
-function getRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+function getLowerCase() {
+  if (lowercaseEl.checked === true) {
+    var lowercase = "abcdefghijklmnopqrstuvwxyz".split("");
+    getPassword.style.display = "block";
+} else {
+  lowercaseEl.style.display = "none";
 }
-function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
-function getRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 48);
+
+function getNumbers() {
+  if (numbersEl.checked === true) {
+    var numbers = "0123456789".split("");
+    getPassword.style.display = "block";
+} else {
+  numbersEl.style.display = "none";
 }
-function getRandomSymbol() {
-  var symbol = '!@#$%^&*()./,<>=+';
-  return symbol[Math.floor(Math.random() * symbol.length)];
+}
+
+function getSymbols() {
+  var symbols = "!@#$%^&**()./,+=".split("");
+  if (symbolsEl.checked === true) {
+    getPassword.style.display = "block";
+} else {
+  symbolsEl.style.display = "none";
+}
+}
+
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password
+    for (var i = 0; i < passwordLength.length; i++){
+      return (password);
+    }
+    console.log(passwordLengthEl);
+    writePassword();
 }
