@@ -20,8 +20,8 @@
         </div>
 
         <form>
-          <label for="passwordLength">Password Length</label>
-          <input type="number" id="passwordLength" min="8" max="30" value="15"/>
+          <label for="pwLength">Password Length</label>
+          <input type="number" id="pwLength" min="8" max="128" value="15"/>
           <label for="lowercase">Lowercase</label>
           <input type="checkbox" id="lowercase"/>
           <label for="uppercase">Uppercase</label>
@@ -32,14 +32,7 @@
           <input type="checkbox" id="numbers"/>
         </form> 
 
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
+        <textarea id="password" placeholder="Your Secure Password" aria-label="Generated Password" ></textarea>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>

@@ -1,87 +1,39 @@
-var passwordLengthEl = document.getElementById('passwordLength').value;
-var uppercaseEl = document.getElementById('uppercase').checked;
-var lowercaseEl = document.getElementById('lowercase').checked;
-var numbersEl = document.getElementById('numbers').checked;
-var symbolsEl = document.getElementById('symbols').checked;
-var generateEl = document.getElementById('generate');
-console.log(uppercaseEl);
+var generateEl = document.querySelector("#generate");
+var lowercaseEl = document.querySelector("#lowercase");
+var uppercaseEl = document.querySelector("#uppercase");
+var symbolsEl = document.querySelector("#symbols");
+var numbersEl = document.querySelector("#numbers");
+var pwLength = document.querySelector("#pwLength");
+var textAreaEl = document.querySelector("#password");
+var letters = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "0123456789";
+var symbols = "!@#$%^&*()+?><";
 
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  
-  passwordText.value = password
-  for (var i = 0; i < passwordLength.length; i++){
-    return (password);
+generateEl.addEventListener("click", function(e) {
+  e.preventDefault();
+  console.log("Total: ", pwLength.value);
+  var emptyCharacters = "";
+  if (lowercaseEl.checked) {
+    emptyCharacters = emptyCharacters + letters;
   }
-  function getUppercase() {
-    var passwordText = document.querySelector("#password");
-    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    if (uppercaseEl.checked === true) {
-      passwordText.style.display = "block";
-      return uppercase;
-    } else {
-      passwordText.style.display = "none";
-    } 
-  } passwordText = getUppercase();
+  if (uppercaseEl.checked) {
+    emptyCharacters = emptyCharacters + letters.toUpperCase();
+  }
+  if (symbolsEl.checked) {
+    emptyCharacters = emptyCharacters + symbols;
+  }
+  if (numbersEl.checked) {
+    emptyCharacters = emptyCharacters + numbers;
+  }
+
+  var length = emptyCharacters.length;
+  var password = "";
   
-}
-
-function getUppercase() {
-  var passwordText = document.querySelector("#password");
-  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  if (uppercaseEl.checked === true) {
-    passwordText.style.display = "block";
-    return uppercase;
-  } else {
-    passwordText.style.display = "none";
-  } 
-} passwordText = getUppercase();
-
-function getLowerCase() {
-  var passwordText = document.querySelector("#password");
-  var lowercase = "abcdefghijklmnopqrstuvwxyz".split("");
-if (lowercaseEl.checked === true) {
-  passwordText.style.display = "block";
-  return lowercase;
-} else {
-  passwordText.style.display = "none";
-} 
-} passwordText = getLowerCase();
-
-function getNumbers() {
-  var passwordText = document.querySelector("#password");
-  var numbers = "0123456789".split("");
-  if (numbersEl.checked === true) {
-    passwordText.style.display = "block";
-    return numbers;
-  } else {
-    passwordText.style.display = "none";
-  } 
-} passwordText = getNumbers();
-
-function getSymbols() {
-  var passwordText = document.querySelector("#password");
-  var symbols= "!@#$%^&**()./,+=".split("");
-  if (symbolsEl.checked === true) {
-    passwordText.style.display = "block";
-    return symbols;
-  } else {
-    passwordText.style.display = "none";
-  } 
-} passwordTExt = getSymbols();
-
-function getRandomLetters(max,min) {
-    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    var lowercase = "abcdefghijklmnopqrstuvwxyz".split("");
-    var numbers = "0123456789".split("");
-    var symbols= "!@#$%^&**()./,+=".split("");
-    var lengthPw = Math.floor(Math.random() * (max - min + 1)) + min;
-    var passwordRandom = Array(lengthPw).getElementById("uppercase", "lowercase", "numbers", "symbols", "passwordLength");
-    return passwordRandom;
-}
-
-generateEl.addEventListener("click", function() {
-  var passwordText = document.querySelector("#password");
-  document.getElementById("password").value = passwordText;
+  for (var i = 0; i < pwLength.value; i++) {
+    var random = Math.floor(Math.random() * length);
+    console.log(length, random, emptyCharacters[random]);
+    password += emptyCharacters[random];
+    console.log(password);
+    textAreaEl.value = password;
+  }
 });
