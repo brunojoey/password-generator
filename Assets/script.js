@@ -11,7 +11,6 @@ var symbols = "!@#$%^&*()+?><";
 
 generateEl.addEventListener("click", function(e) {
   e.preventDefault();
-  console.log("Total: ", pwLength.value);
   var emptyCharacters = "";
   if (lowercaseEl.checked) {
     emptyCharacters = emptyCharacters + letters;
@@ -31,9 +30,7 @@ generateEl.addEventListener("click", function(e) {
   
   for (var i = 0; i < pwLength.value; i++) {
     var random = Math.floor(Math.random() * length);
-    console.log(length, random, emptyCharacters[random]);
     password += emptyCharacters[random];
-    console.log(password);
     textAreaEl.value = password;
   }
 });
