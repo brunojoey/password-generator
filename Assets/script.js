@@ -24,6 +24,12 @@ generateEl.addEventListener("click", function(e) {
   if (numbersEl.checked) {
     emptyCharacters = emptyCharacters + numbers;
   }
+  if (pwLength < 8) {
+    alert("You need more characters.")
+  }
+  if (pwLength > 128) {
+    alert("You have too many characters.")
+  }
 
   var length = emptyCharacters.length;
   var password = "";
