@@ -39,8 +39,5 @@ To contribute, clone this repository into your terminal, work on the project, th
 ## Screenshot in Use 
 ![Password Generator Screenshot](password-generator-screenshot.jpg)
 
-## Development Link
-[GitHub for Password Generator](https://github.com/brunojoey/password-generator)
-
 ## Deployed Link
 [Password Generator Link](https://brunojoey.github.io/password-generator/)
