@@ -16,4 +16,4 @@ This is a password generator. It includes uppercase, lowercase, number, symbol f
 [GitHub for Password Generator](https://github.com/brunojoey/password-generator)
 
 ## Deployed Link
-[Password Generator Link] (https://brunojoey.github.io/password-generator/)
+[Password Generator Link](https://brunojoey.github.io/password-generator/)
